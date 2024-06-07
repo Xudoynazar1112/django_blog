@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blog Home</title>
+</head>
+<body style="max-width: 90%; margin: 0 auto">
+    <div style="display: flex; justify-content: space-between">
+        <h2><a href="{% url 'blog:register' %}">Register</a></h2>
+        <h2><a href="#">Login</a></h2>
+    </div>
+    <h1>Latest Posts</h1>
+    <ul>
+        {% for post in latest_posts %}
+            <li><a href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Most Viewed Posts</h2>
+    <ul>
+        {% for post in most_viewed_posts %}
+            <li><a href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Popular This Week</h2>
+    <ul>
+        {% for post in popular_week_posts %}
+            <li><a href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Popular This Month</h2>
+    <ul>
+        {% for post in popular_month_posts %}
+            <li><a href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
